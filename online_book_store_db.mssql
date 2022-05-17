@@ -1,0 +1,213 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: May 17, 2022 at 10:23 PM
+-- Server version: 5.7.34
+-- PHP Version: 8.0.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `online_book_store_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `full_name`, `email`, `password`) VALUES
+(1, 'Elias', 'eliasfsdev@gmail.com', '$2y$10$Nqq/y251QX2Ccvb1Ax7hUuMqQSkG3yRLCxN2KPdetnSP3oaXVH70a'),
+(2, 'naura fatiha', 'admin@site.com', '$2y$10$rAu7/YoSgJt4ryJhBuPgXOzueEyWO/3sxuAJ6lQxn6NszUK3srAHC'),
+(3, 'as asa', 'admin1@site.com', '$2y$10$8AZLwZ6bjUcPONbZVo09eevw1jQqTcAMO4Bzy9.NuyKNsQuO8eHeG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `authors`
+--
+
+CREATE TABLE `authors` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `name`) VALUES
+(1, 'jone'),
+(2, 'sandy'),
+(3, 'noura'),
+(4, 'ali'),
+(5, 'ahmad');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `cover` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `title`, `author_id`, `description`, `category_id`, `cover`) VALUES
+(1, 'Brain Games - Sticker Activity: There Was an Old Lady Who Swallowed the Alphabet!', 1, ' Introduce children to the alphabet in a fun, interactive way with this sticker activity book! Discover 27 activities and more than 150 stickers. Activities include matching pictures and words, finding missing letters that start the words, and adding stickers to finish the picture. Activities are in the front of the book and the corresponding stickers are in the back. Many bonus stickers are found in the book.  Children ages 3 and up will love the colorful, whimsical illustrations on each page. Follow along as the old lady makes a meal of the alphabet, one letter at a time.  The spiral binding allows the book to lie flat for easy use. 52 pages', 1, 'img/Brain Games - Sticker Activity- There Was an Old Lady Who Swallowed the Alphabet!.jpg'),
+(2, 'Reach for the Stars ', 2, 'From Emmy-nominated science TV star and host of Netflix’s hit series Emily’s Wonder Lab Emily Calandrelli comes an inspirational message of love and positivity.  From the moment we are born, we reach out. We reach out for our loved ones, for new knowledge and experiences, and for our dreams!  Whether celebrating life’s joyous milestones, sharing words of encouragement, or observing the wonder of the world around us, this uplifting book will inspire readers of every age. A celebration of love and shared discovery, this book will encourage readers to reach for the stars!', 5, 'img/Reach for the Stars.jpg'),
+(3, 'School Zone - First Grade Big Learning Tablet Workbook', 3, 'This one great big tablet gives children hours of colorful 1st grade learning! With the creative, colorful pages of skill-building activities in Big First Grade Learning Tablet, first-graders are introduced to a variety of lessons that expand problem solving and careful observation. By teaching critical thinking skills, primary phonics, beginner reading comprehension, and more, this great tablet prepares first graders for what comes next. It also makes a great addition and subtraction workbook, teaching kids basic math skills through fun educational games. Boost confidence and celebrate achievement with more than 20 adorable reward stickers. Who wouldn\'t like to adorn their work with a glowing light bulb proclaiming they are \"Brilliant!\"? This kind of enjoyable reinforcement learning is perfect as both a school aid, or as a great addition to kids homeschool teaching. The vertical, portrait-oriented cover makes for easy shelving or dropping into a backpack, and because it lays flat, left-handed writers will have free space on the left side.', 3, 'img/School Zone - First Grade Big Learning Tablet Workbook.jpg'),
+(4, 'The Very Hungry Caterpillar', 2, 'THE all-time classic picture book, from generation to generation, sold somewhere in the world every 30 seconds! A sturdy and beautiful book to give as a gift for new babies, baby showers, birthdays, and other new beginnings!', 4, 'img/The Very Hungry Caterpillar.png'),
+(5, 'The Complete Cookbook for Young Chefs', 5, 'Want to bake the most-awesome-ever cupcakes? Or surprise your family with breakfast tacos on Sunday morning? Looking for a quick snack after school? Or maybe something special for a sleepover? It\'s all here. Learn to cook like a pro―it\'s easier than you think.', 2, 'img/The Complete Cookbook for Young Chefs.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'adventure'),
+(2, 'fun'),
+(3, 'hand craft'),
+(4, 'heros'),
+(5, 'Science');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `reviewer_name` varchar(255) NOT NULL,
+  `completion_status` tinyint(4) NOT NULL,
+  `review` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `book_id`, `reviewer_name`, `completion_status`, `review`, `created_at`) VALUES
+(6, 1, 'xs1', 2, 'review1', '2022-05-12 20:49:10'),
+(7, 1, 'TEST', 3, 'review', '2022-05-12 16:40:22'),
+(8, 1, 'name', 2, 'review', '2022-05-13 05:33:00'),
+(10, 4, 'Layan', 2, 'a', '2022-05-17 19:03:23'),
+(11, 4, 't', 1, 't', '2022-05-17 19:07:43');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `authors`
+--
+ALTER TABLE `authors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `authors`
+--
+ALTER TABLE `authors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
