@@ -24,36 +24,33 @@ if (isset($_SESSION['user_id']) &&
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <div class="container-fluid">
-		    <a class="navbar-brand" href="index.php"><img src="img/bibliophilia (3).png" alt="logo" width="150" height="150" ></a>
-		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		      <span class="navbar-toggler-icon"></span>
-		    </button>
-		    <div class="collapse navbar-collapse" 
-		         id="navbarSupportedContent">
-		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             aria-current="page" 
-		             href="index.php">Books</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="add-book.php">Add Book</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="add-category.php">Add Category</a>
-		        </li>
-		        
-		        <li class="nav-item">
-		          <a class="nav-link" 
-		             href="logout.php">Logout</a>
-		        </li>
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
+				<div class="container-fluid">
+					<a class="navbar-brand" href="index.php"><img src="img/bibliophilia (3).png" alt="logo" width="150" height="150"></a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="index.php">Books</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="add-book.php">Add Book</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="add-author.php">Add Author</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="add-category.php">Add Category</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="logout.php">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
      <form action="php/add-category.php"
            method="post" 
            class="shadow p-4 rounded mt-5"
